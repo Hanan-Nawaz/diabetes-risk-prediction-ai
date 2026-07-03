@@ -10,5 +10,6 @@ dependencies = [
     "nbconvert>=7.17.1",
     "pandas>=3.0.3",
     "scikit-learn>=1.9.0",
+    "streamlit>=1.58.0",
     "uvicorn>=0.49.0",
 ]
