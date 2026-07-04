@@ -1,41 +1,91 @@
-# Diabetes Risk Prediction
+# 🩺 Diabetes Risk Prediction (Machine Learning Project)
 
-A machine learning project that predicts the likelihood of diabetes based on patient health metrics. The project follows a modular ML pipeline architecture, including data loading, preprocessing, model training, evaluation, feature importance analysis, and model persistence.
+A machine learning project that predicts the likelihood of diabetes based on patient health metrics using a modular ML pipeline architecture.
 
-> Educational project only. This application is not intended for medical diagnosis or treatment.
+The system includes:
+- Data preprocessing
+- Model training
+- Evaluation
+- Feature importance analysis
+- Model persistence
+- FastAPI backend deployment (Hugging Face Spaces)
+- Streamlit frontend interface
 
-## Features
+---
 
-* End-to-end machine learning pipeline
-* Exploratory Data Analysis (EDA) notebook
-* Data cleaning and preprocessing
-* Model training and evaluation
-* Feature importance analysis
-* Model serialization with Joblib
-* FastAPI-ready backend model
-* Managed with `uv`
+## ⚠️ Disclaimer
 
-## Tech Stack
+This project is for **educational and research purposes only**.
 
-* Python
-* Pandas
-* NumPy
-* Scikit-learn
-* Joblib
-* Jupyter Notebook
-* FastAPI
-* Streamlit
-* uv
+- It does NOT provide medical advice, diagnosis, or treatment
+- It must NOT be used for real-world medical decisions
+- It is not a certified healthcare system
+- Always consult a qualified healthcare professional for medical concerns
 
-## Project Structure
+---
 
-```text
+## 🚀 Live Demo
+
+### 🧠 FastAPI Backend (Hugging Face)
+
+https://hanannawaz0-diabetes-risk-api.hf.space/predict
+
+---
+
+### 🎨 Streamlit Frontend
+
+https://diabetes-risk-prediction-tool.streamlit.app/
+
+---
+
+## 🔐 Privacy & GDPR (DSGVO)
+
+- No personal data is stored
+- No user tracking or analytics
+- No cookies used for identification
+- No data is shared with third parties
+- Inputs are processed only in real-time
+- No user identification is performed
+
+---
+
+## ⚙️ Features
+
+- End-to-end machine learning pipeline
+- Exploratory Data Analysis (EDA)
+- Data cleaning & preprocessing
+- Classification model training
+- Model evaluation (Accuracy, Precision, Recall, F1, ROC AUC)
+- Feature importance analysis
+- Model serialization with Joblib
+- FastAPI backend deployment
+- Streamlit interactive UI
+- Managed with uv
+
+---
+
+## 🧰 Tech Stack
+
+- Python
+- Pandas
+- NumPy
+- Scikit-learn
+- Joblib
+- FastAPI
+- Streamlit
+- Jupyter Notebook
+- uv
+
+---
+
+## 📁 Project Structure
+
 diabetes-risk-prediction/
 │
 ├── data/
 │   └── diabetes.csv
 │
-├── model/
+├── ai_model/
 │   └── diabetes_model.pkl
 │
 ├── notebooks/
@@ -50,199 +100,68 @@ diabetes-risk-prediction/
 │   ├── feature_importance.py
 │   └── save_model.py
 │
-├── main.py
+├── api/
+│   ├── model/
+│   │   ├── __init__.py
+│   │   └── diabetes_model.py
+│   └── main.py
 │
+├── results/
+│   ├── classification_report.csv
+│   ├── confusion_matrix.csv
+│   ├── feature_importance.csv
+│   └── model_metrics.csv
+│
+├── frontend/
+│   └── app.py
+│
+├── Dockerfile
+├── .python-version
+├── .gitignore
+├── main.py
+├── .requirements.tyt
 ├── pyproject.toml
 ├── uv.lock
 └── README.md
-```
 
-## Dataset
+---
 
-The project uses the Pima Indians Diabetes Dataset.
+## 📊 Dataset
 
-### Features
+Pima Indians Diabetes Dataset
 
-* Pregnancies
-* Glucose
-* Blood Pressure
-* Skin Thickness
-* Insulin
-* BMI
-* Diabetes Pedigree Function
-* Age
+Features:
+- Pregnancies
+- Glucose
+- Blood Pressure
+- Skin Thickness
+- Insulin
+- BMI
+- Diabetes Pedigree Function
+- Age
 
-### Target
+Target:
+0 → No Diabetes  
+1 → Diabetes  
 
-```text
-Outcome
-```
+---
 
-```text
-0 = No Diabetes
-1 = Diabetes
-```
+## 🚀 Deployment
 
-## Exploratory Data Analysis
+FastAPI Backend:
+https://hanannawaz0-diabetes-risk-api.hf.space
 
-The notebook:
+Endpoint:
+POST /predict
 
-```text
-notebooks/01_eda.ipynb
-```
+---
 
-contains:
-
-* Dataset overview
-* Missing value analysis
-* Feature distributions
-* Correlation analysis
-* Target class distribution
-* Initial insights for model development
-
-## Machine Learning Pipeline
-
-The project is organized into reusable pipeline stages:
-
-### 1. Load Data
-
-```text
-scripts/load_data.py
-```
-
-Loads the dataset into memory.
-
-### 2. Clean Data
-
-```text
-scripts/clean_data.py
-```
-
-Handles invalid values and preprocessing.
-
-### 3. Split Data
-
-```text
-scripts/split_data.py
-```
-
-Creates training and testing datasets.
-
-### 4. Train Model
-
-```text
-scripts/train_model.py
-```
-
-Trains the machine learning model.
-
-### 5. Evaluate Model
-
-```text
-scripts/evaluate_model.py
-```
-
-Calculates performance metrics such as:
-
-* Accuracy
-* Precision
-* Recall
-* F1 Score
-* ROC AUC
-* Confusion Matrix
-
-### 6. Feature Importance
-
-```text
-scripts/feature_importance.py
-```
-
-Identifies the most influential features used by the model.
-
-### 7. Save Model
-
-```text
-scripts/save_model.py
-```
-
-Stores the trained model for future inference.
-
-## Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/hanan-nawaz/diabetes-risk-prediction-ai.git
-cd diabetes-risk-prediction-ai
-```
-
-Install dependencies:
-
-```bash
-uv sync
-```
-
-If uv is not installed:
-
-```bash
-pip install uv
-```
-
-## Run the Full Pipeline
-
-The complete workflow can be executed through:
-
-```bash
-uv run main.py
-```
-
-This will:
-
-1. Load the dataset
-2. Clean and preprocess data
-3. Split train/test sets
-4. Train the model
-5. Evaluate performance
-6. Generate feature importance results
-7. Save the trained model
-
-## Model Output
-
-After training, the serialized model is stored in:
-
-```text
-model/diabetes_model.pkl
-```
-
-This model can later be served through a FastAPI API or integrated into a Streamlit application.
-
-## Future Improvements
-
-* Hyperparameter tuning
-* SHAP explainability
-* Model comparison experiments
-* Docker containerization
-* CI/CD pipeline
-* FastAPI deployment
-* Streamlit dashboard
-* Prediction logging
-
-## Learning Objectives
-
-This project demonstrates:
-
-* Data preprocessing
-* Exploratory data analysis
-* Classification modeling
-* Model evaluation
-* Feature importance analysis
-* Project modularization
-* Reproducible ML workflows
-
-## Author
+## 👤 Author
 
 Abdul Hanan Nawaz
 
-## Reference
+---
 
-- Dataset is downloaded from kaggle
+## 📚 Dataset Source
+
+Kaggle: Pima Indians Diabetes Dataset
