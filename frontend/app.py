@@ -4,11 +4,35 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-url = os.get("url")
+url = os.getenv("url")
 
 st.set_page_config(page_title="Diabetes Risk Prediction", layout="wide")
 
 st.subheader("Diabetes Risk Prediction Tool")
+st.caption("""
+Disclaimer: This tool is for educational and research purposes only.
+It is not intended for clinical or medical use.
+""")
+st.markdown("---")
+
+st.warning("""
+⚠️ Educational Project Only
+
+This application is developed for learning and demonstration purposes only.
+
+- It does NOT provide medical advice, diagnosis, or treatment
+- Results should NOT be used for real medical decisions
+- Always consult a qualified healthcare professional
+""")
+
+st.info("""
+🔒 Data Privacy (GDPR / DSGVO)
+
+- No personal data is stored
+- No data is shared with third parties
+- Inputs are processed only for real-time prediction
+- No user tracking or analytics are used
+""")
 st.markdown("---")
 
 col1, col2, col3 = st.columns([1, 1, 1], gap="large")
@@ -27,6 +51,10 @@ with col3:
     bp = st.number_input("Blood Pressure")    
     bmi = st.number_input("BMI")
 
+agree = st.checkbox("I understand this is not a medical diagnosis tool")
+
+if not agree:
+    st.stop()
 btn = st.button("Check")    
 
 if btn:
@@ -51,7 +79,7 @@ if btn:
 
         data = response.json()
         if response.status_code == 200:
-            st.success("Success!")
+            st.success("Prediction completed (educational output)")
             st.markdown("---")
             col1, col2, col3 = st.columns([1, 1, 1], gap="large")
 
@@ -100,7 +128,7 @@ if btn:
                 st.markdown(html, unsafe_allow_html=True)
             
             with col3:
-                st.write("Prediction")
+                st.write("Model Output")
                 html = f"""
                 <div style="
                     background-color:#262730;
