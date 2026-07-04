@@ -13,7 +13,7 @@ The system includes:
 
 ---
 
-## ⚠️ Disclaimer
+## Disclaimer
 
 This project is for **educational and research purposes only**.
 
@@ -24,21 +24,21 @@ This project is for **educational and research purposes only**.
 
 ---
 
-## 🚀 Live Demo
+## Live Demo
 
-### 🧠 FastAPI Backend (Hugging Face)
+### FastAPI Backend (Hugging Face)
 
 https://hanannawaz0-diabetes-risk-api.hf.space/predict
 
 ---
 
-### 🎨 Streamlit Frontend
+### Streamlit Frontend
 
 https://diabetes-risk-prediction-tool.streamlit.app/
 
 ---
 
-## 🔐 Privacy & GDPR (DSGVO)
+## Privacy & GDPR (DSGVO)
 
 - No personal data is stored
 - No user tracking or analytics
@@ -49,7 +49,7 @@ https://diabetes-risk-prediction-tool.streamlit.app/
 
 ---
 
-## ⚙️ Features
+## Features
 
 - End-to-end machine learning pipeline
 - Exploratory Data Analysis (EDA)
@@ -64,7 +64,7 @@ https://diabetes-risk-prediction-tool.streamlit.app/
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 
 - Python
 - Pandas
@@ -78,8 +78,9 @@ https://diabetes-risk-prediction-tool.streamlit.app/
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
+```text
 diabetes-risk-prediction/
 │
 ├── data/
@@ -106,27 +107,26 @@ diabetes-risk-prediction/
 │   │   └── diabetes_model.py
 │   └── main.py
 │
+├── frontend/
+│   └── app.py
+│
 ├── results/
 │   ├── classification_report.csv
 │   ├── confusion_matrix.csv
 │   ├── feature_importance.csv
 │   └── model_metrics.csv
 │
-├── frontend/
-│   └── app.py
-│
 ├── Dockerfile
-├── .python-version
-├── .gitignore
 ├── main.py
-├── .requirements.tyt
 ├── pyproject.toml
 ├── uv.lock
+├── .python-version
+├── .gitignore
 └── README.md
-
+```
 ---
 
-## 📊 Dataset
+## Dataset
 
 Pima Indians Diabetes Dataset
 
@@ -146,7 +146,7 @@ Target:
 
 ---
 
-## 🚀 Deployment
+## Deployment
 
 FastAPI Backend:
 https://hanannawaz0-diabetes-risk-api.hf.space
@@ -156,12 +156,12 @@ POST /predict
 
 ---
 
-## 👤 Author
+## Author
 
 Abdul Hanan Nawaz
 
 ---
 
-## 📚 Dataset Source
+## Dataset Source
 
 Kaggle: Pima Indians Diabetes Dataset
