@@ -56,9 +56,16 @@ btn = st.button("Check")
 
 if btn:
 
-    if (preg == 0 or skin_thick == 0 or dia_ped_func == 0 or glu == 0 or
-        insul == 0 or age == 0 or bp == 0 or bmi == 0):
-        st.warning("Please fill all details")
+    if (
+        glu <= 0 or
+        bp <= 0 or
+        bmi <= 0 or
+        skin_thick <= 0 or
+        insul <= 0 or
+        age <= 0 or
+        dia_ped_func < 0
+    ):
+    st.warning("Please enter valid medical values (non-zero required where applicable)")
     else:
         response = req.post(
             url,
