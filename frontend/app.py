@@ -65,7 +65,7 @@ if btn:
         age <= 0 or
         dia_ped_func < 0
     ):
-    st.warning("Please enter valid medical values (non-zero required where applicable)")
+        st.warning("Please enter valid medical values (non-zero required where applicable)")
     else:
         response = req.post(
             url,
