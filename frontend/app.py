@@ -1,10 +1,7 @@
 import streamlit as st
 import requests as req
-from dotenv import load_dotenv
-import os
 
-load_dotenv()
-url = os.getenv("url")
+url = st.secrets["API_URL"]
 
 st.set_page_config(page_title="Diabetes Risk Prediction", layout="wide")
 
