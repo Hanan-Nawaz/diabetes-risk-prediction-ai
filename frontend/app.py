@@ -1,5 +1,10 @@
 import streamlit as st
 import requests as req
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+url = os.get("url")
 
 st.set_page_config(page_title="Diabetes Risk Prediction", layout="wide")
 
@@ -31,7 +36,7 @@ if btn:
         st.warning("Please fill all details")
     else:
         response = req.post(
-            "http://127.0.0.1:8000/predict",
+            url,
             json={
                 "Pregnancies": preg,
                 "Glucose": glu,
