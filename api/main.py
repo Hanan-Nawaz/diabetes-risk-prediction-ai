@@ -1,24 +1,25 @@
 from fastapi import FastAPI
 from scripts.load_model import load_model
-from model.diabetes_model import DiabetesModel
+from api.model.diabetes_model import DiabetesModel
 import numpy as np
+import pandas as pd
 
 app = FastAPI()
 
 @app.post("/predict")
 def predict_diabetes(data: DiabetesModel):
-    features = np.array([
-        data.Pregnancies,
-        data.Glucose,
-        data.BloodPressure,
-        data.SkinThickness,
-        data.Insulin,
-        data.BMI,
-        data.DiabetesPedigreeFunction,
-        data.Insulin
-    ])
+    features = pd.DataFrame([{
+        "Pregnancies": data.Pregnancies,
+        "Glucose": data.Glucose,
+        "BloodPressure": data.BloodPressure,
+        "SkinThickness": data.SkinThickness,
+        "Insulin": data.Insulin,
+        "BMI": data.BMI,
+        "DiabetesPedigreeFunction": data.DiabetesPedigreeFunction,
+        "Age": data.Age
+    }])
 
-    model = load_model("../model/diabetes_model.pkl")
+    model = load_model("ai_model/diabetes_model.pkl")
     prediction = model.predict(features)[0]
     probability = model.predict_proba(features)[0][1]
 
@@ -29,8 +30,8 @@ def predict_diabetes(data: DiabetesModel):
     else:
         risk = "High"
 
-    return{
-        risk: risk,
-        probability: round(float(probability), 3),
-        prediction: int(prediction)
+    return {
+        "risk": risk,
+        "probability": round(float(probability), 3),
+        "prediction": int(prediction)
     }
