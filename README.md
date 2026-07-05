@@ -1,4 +1,4 @@
-# 🩺 Diabetes Risk Prediction (Machine Learning Project)
+# 🩺 Diabetes Risk Prediction Tool
 
 A machine learning project that predicts the likelihood of diabetes based on patient health metrics using a modular ML pipeline architecture.
 
