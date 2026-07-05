@@ -11,6 +11,9 @@ The system includes:
 - FastAPI backend deployment (Hugging Face Spaces)
 - Streamlit frontend interface
 
+```You can read the detailed article about this project on medium: ```
+[Medium Link](https://medium.com/@hanannawazdev/from-data-to-deployment-a-complete-diabetes-risk-ml-system-0f8e71882060?sharedUserId=hanannawazdev)
+
 ---
 
 ## Disclaimer
